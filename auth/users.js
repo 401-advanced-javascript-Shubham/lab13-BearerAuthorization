@@ -44,7 +44,7 @@ Users.statics.authenticateBasic = async function (username, password){
      }
 };
 
-Users.statics.authenticateWithToken = async function(token){
-  //returns a user
-}
+// Users.statics.authenticateWithToken = async function(token){
+//   //returns a user
+// }
 module.exports = mongoose.model('users',Users);

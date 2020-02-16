@@ -4,7 +4,7 @@ const express =  require('express');
 
 const basicAuth = require('./middleware/basic-auth-middleware.js');
 const oauth = require('./middleware/oauth-middleware.js');
-//const auth = require('./token-auth-middleware.js');
+const auth = require('./middleware/token-auth-middleware.js');
 const Users = require('./users.js');
 
 const app = express();
@@ -48,10 +48,10 @@ app.get('/oauth',oauth,(req,res)=>{
     res.status(200).send(req.token);
 });
 
-// app.get('/secretStuff', auth,(req,res)
-//  => {
-//     res.send('you got mail');
-// })
+app.get('/secretStuff', auth,(req,res)
+ => {
+    res.send(`Welcome back, ${req.user.username}`);
+})
 
 // app.get('/secretStuff', auth, permission('delete'),(req,res)
 //  => {
